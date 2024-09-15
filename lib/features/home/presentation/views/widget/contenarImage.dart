@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class Contenarimage extends StatelessWidget {
-  const Contenarimage({super.key});
+  const Contenarimage({super.key, required this.bookImage});
+  final String bookImage;
 
   @override
   Widget build(BuildContext context) {
@@ -13,7 +14,8 @@ class Contenarimage extends StatelessWidget {
         height: 243.h,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(25),
-          image: const DecorationImage(image: AssetImage(TestImage)),
+          image:
+              DecorationImage(image: NetworkImage(bookImage), fit: BoxFit.fill),
         ),
       ),
     );

@@ -2,6 +2,7 @@ import 'package:bookly/core/Network/get_it.dart';
 import 'package:bookly/features/home/data/repo/home_repo_implement.dart';
 import 'package:bookly/features/home/presentation/controller/allbooks_cubit/allbooks_cubit.dart';
 import 'package:bookly/features/home/presentation/controller/newsbooks_cubit/newsbooks_cubit.dart';
+import 'package:bookly/features/home/presentation/views/details_bestseller.dart';
 import 'package:bookly/features/home/presentation/views/details_book.dart';
 import 'package:bookly/features/home/presentation/views/home_screen.dart';
 import 'package:bookly/features/splash/views/splash_screen.dart';
@@ -34,12 +35,12 @@ class MyApp extends StatelessWidget {
           designSize: const Size(375, 812),
           minTextAdapt: true,
           splitScreenMode: true,
-          // Use builder only if you need to use library outside ScreenUtilInit context
           builder: (_, child) {
             return MaterialApp(
               routes: {
                 "homeScreen": (context) => const HomeScreen(),
                 "Book": (context) => const DetailsBook(),
+                "bestseller_books": (context) => const DetailsBestSeller(),
               },
               debugShowCheckedModeBanner: false,
               theme: ThemeData.dark()

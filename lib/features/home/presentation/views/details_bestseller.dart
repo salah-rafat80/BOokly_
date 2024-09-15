@@ -1,6 +1,7 @@
 import 'package:bookly/core/constant.dart';
 import 'package:bookly/features/home/data/Model/books/volume_info.dart';
 import 'package:bookly/features/home/presentation/controller/allbooks_cubit/allbooks_state.dart';
+import 'package:bookly/features/home/presentation/controller/newsbooks_cubit/newsbooks_state.dart';
 import 'package:bookly/features/home/presentation/views/widget/Appbar.dart';
 import 'package:bookly/features/home/presentation/views/widget/Book_Writer.dart';
 import 'package:bookly/features/home/presentation/views/widget/Rate_box.dart';
@@ -9,15 +10,15 @@ import 'package:bookly/features/home/presentation/views/widget/contenarImage.dar
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class DetailsBook extends StatelessWidget {
-  const DetailsBook({super.key});
+class DetailsBestSeller extends StatelessWidget {
+  const DetailsBestSeller({super.key});
 
   @override
   Widget build(BuildContext context) {
     var info =
         ModalRoute.of(context)!.settings.arguments as Map<String, dynamic>;
     VolumeInfo? volumeInfo = info['volumeInfo'];
-    AllbooksLoaded? state = info['stat'];
+    NewsbooksLoaded? state = info['stat'];
     return SafeArea(
       child: Scaffold(
         body: SingleChildScrollView(

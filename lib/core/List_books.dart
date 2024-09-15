@@ -1,6 +1,7 @@
 import 'package:bookly/core/book_poster.dart';
 import 'package:bookly/features/home/presentation/controller/allbooks_cubit/allbooks_cubit.dart';
 import 'package:bookly/features/home/presentation/controller/allbooks_cubit/allbooks_state.dart';
+import 'package:bookly/features/home/presentation/views/widget/loding.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -18,7 +19,7 @@ class _ListBooksState extends State<ListBooks> {
       builder: (context, state) {
         if (state is AllbooksLoading) {
           return const Center(
-            child: CircularProgressIndicator(),
+            child: CustomLoadingAnimation(),
           );
         } else if (state is AllbooksError) {
           return const Center(
@@ -28,9 +29,10 @@ class _ListBooksState extends State<ListBooks> {
           return ListView.builder(
             scrollDirection: Axis.horizontal,
             itemBuilder: (context, index) {
-              final volumeInfo = state.books![index].volumeInfo!;
+              final volumeInfo = state.books?[index].volumeInfo;
               return BookPoster(
-                Info: state.books![index].volumeInfo!,
+                Info: volumeInfo,
+                stat: state,
               );
             },
             itemCount: state.books!.length,
